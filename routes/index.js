@@ -7,6 +7,10 @@ const s3 = new AWS.S3()
 
 const router = new Router();
 
+router.get('/', function(req, res, next) {
+  res.render('express', { title: 'Express' });
+});
+
 router.get("/sum/:number1/:number2", async (req, res) => {
   let my_file = await s3.getObject({
     Bucket: "cyclic-puzzled-mite-attire-eu-north-1",
